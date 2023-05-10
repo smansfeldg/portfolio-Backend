@@ -1,7 +1,19 @@
 package com.portfolio.SpringBoot.controller;
 
+import com.portfolio.SpringBoot.model.educacion;
+import com.portfolio.SpringBoot.model.experiencia;
 import com.portfolio.SpringBoot.model.persona;
+import com.portfolio.SpringBoot.model.proyectos;
+import com.portfolio.SpringBoot.model.tipo_empleo;
+import com.portfolio.SpringBoot.model.tipo_skill;
+import com.portfolio.SpringBoot.model.usuario;
+import com.portfolio.SpringBoot.service.IEducacionService;
+import com.portfolio.SpringBoot.service.IExperienciaService;
 import com.portfolio.SpringBoot.service.IPersonaService;
+import com.portfolio.SpringBoot.service.IProyectosService;
+import com.portfolio.SpringBoot.service.ITipo_empleoService;
+import com.portfolio.SpringBoot.service.IUsuarioService;
+import com.portfolio.SpringBoot.service.iTipo_skillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,21 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class controller {
-    
-    //List<persona> listaPersona = new ArrayList();
-    
-   /* 
-    @GetMapping ("/hola/{nombre}")
-    public String decirHola(@PathVariable String nombre){
-        return "Hola mundo " + nombre;
-    }
-    @GetMapping ("/chau")
-    public String decirChau (@RequestParam String nombre,
-                             @RequestParam String apellido){
-        return "Chau mundo " + nombre + " " + apellido;
-    }
-    */
-    
+    ///PERSONA
     @Autowired
     private IPersonaService persoServ;
     
@@ -42,11 +40,125 @@ public class controller {
     @ResponseBody
     public List<persona> verPersona(){
         return persoServ.verPersona();
-        //return listaPersona;
     }
     
     @DeleteMapping("/delete/{id}")
     public void borrarPersona(@PathVariable Long id){
         persoServ.borrarPerosna(id);
+    }
+    ///USUARIO
+    @Autowired
+    private IUsuarioService userServ;
+    
+    @PostMapping ("/new/usuario")
+    public void agregarUsuario(@RequestBody usuario user){
+        userServ.crearUsuario(user);
+        //System.out.println(user.getUser_name());
+    }
+    
+    @GetMapping ("/ver/usuario")
+    @ResponseBody
+    public List<usuario> verUsuario(){
+        return userServ.verUsuario();
+    }
+    
+    @DeleteMapping("/deleteUser/{id}")
+    public void borrarUsuario(@PathVariable Long id){
+        userServ.borrarUsuario(id);
+    }
+    ///EDUCACION
+    @Autowired
+    private IEducacionService educServ;
+    
+    @PostMapping ("/new/educacion")
+    public void agregarEducacion(@RequestBody educacion educ){
+        educServ.crearEducacion(educ);
+    }
+    
+    @GetMapping ("/ver/educacion")
+    @ResponseBody
+    public List<educacion> verEducacion(){
+        return educServ.verEducacion();
+    }
+    
+    @DeleteMapping("/deleteEducacion/{id}")
+    public void borrarEducacion(@PathVariable Long id){
+        educServ.borrarEducacion(id);
+    }
+    ///EXPERIENCIA
+    @Autowired
+    private IExperienciaService expServ;
+    
+    @PostMapping ("/new/experiencia")
+    public void agregarExperiencia(@RequestBody experiencia exp){
+        expServ.crearExperiencia(exp);
+    }
+    
+    @GetMapping ("/ver/experiencia")
+    @ResponseBody
+    public List<experiencia> verExperiencia(){
+        return expServ.verExperiencia();
+    }
+    
+    @DeleteMapping("/deleteExperiencia/{id}")
+    public void borrarExperiencia(@PathVariable Long id){
+        expServ.borrarExperiencia(id);
+    }
+    ///TIPO_EMPLEO
+    @Autowired
+    private ITipo_empleoService empServ;
+    
+    @PostMapping ("/new/tipo_empleo")
+    public void agregarTipo_empleo(@RequestBody tipo_empleo empl){
+        empServ.crearTipo_empleo(empl);
+    }
+    
+    @GetMapping ("/ver/tipo_empleo")
+    @ResponseBody
+    public List<tipo_empleo> verTipo_empleo(){
+        return empServ.verTipo_empleo();
+    }
+    
+    @DeleteMapping("/deleteTipo_empleo/{id}")
+    public void borrarTipo_empleo(@PathVariable Long id){
+        empServ.borrarTipo_empleo(id);
+    }
+    ///PROYECTOS
+    @Autowired
+    private IProyectosService proyServ;
+    
+    @PostMapping ("/new/proyectos")
+    public void agregarProyectos(@RequestBody proyectos proyec){
+        proyServ.crearProyectos(proyec);
+    }
+    
+    @GetMapping ("/ver/proyectos")
+    @ResponseBody
+    public List<proyectos> verProyectos(){
+        return proyServ.verProyectos();
+    }
+    
+    @DeleteMapping("/deleteProyectos/{id}")
+    public void borrarProyectos(@PathVariable Long id){
+        proyServ.borrarProyectos(id);
+    }
+    ///TIPO_SKILL
+    @Autowired
+    private iTipo_skillService tskillServ;
+    
+    @PostMapping ("/new/tipo_skill")
+    public void agregarTipo_skill(@RequestBody tipo_skill tskill){
+        tskillServ.crearTipo_skill(tskill);
+    }
+    
+    @GetMapping ("/ver/tipo_skill")
+    @ResponseBody
+    public List<tipo_skill> verTipo_skill(){
+        return tskillServ.verTipo_skill();
+    }
+    
+    @DeleteMapping("/deleteTipo_skill/{id}")
+    public void borrarTipo_skill(@PathVariable Long id){
+        tskillServ.borrarTipo_skill(id);
     }
 }

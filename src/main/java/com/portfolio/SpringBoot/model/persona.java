@@ -17,12 +17,21 @@ public class persona {
     
     private String nombre;
     private String apellido;
+    private String ciudad;
+    private String profesion;
+    private String about;
+    private String url_foto;
     
     public persona(){}
     
-    public persona(Long id, String nombre, String apellido){
-        this.nombre = nombre;
+    public persona(Long id, String nombre, String apellido, String ciudad,
+    String profesion, String about, String url_foto){
         this.id = id;
+        this.nombre = nombre;
         this.apellido = apellido;
+        this.ciudad = ciudad;
+        this.profesion = profesion;
+        this.about = about;
+        this.url_foto = url_foto;
     }
 }
