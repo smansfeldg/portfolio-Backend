@@ -4,6 +4,7 @@ import com.portfolio.SpringBoot.model.educacion;
 import com.portfolio.SpringBoot.model.experiencia;
 import com.portfolio.SpringBoot.model.persona;
 import com.portfolio.SpringBoot.model.proyectos;
+import com.portfolio.SpringBoot.model.skills;
 import com.portfolio.SpringBoot.model.tipo_empleo;
 import com.portfolio.SpringBoot.model.tipo_skill;
 import com.portfolio.SpringBoot.model.usuario;
@@ -13,6 +14,7 @@ import com.portfolio.SpringBoot.service.IPersonaService;
 import com.portfolio.SpringBoot.service.IProyectosService;
 import com.portfolio.SpringBoot.service.ITipo_empleoService;
 import com.portfolio.SpringBoot.service.IUsuarioService;
+import com.portfolio.SpringBoot.service.iSkillService;
 import com.portfolio.SpringBoot.service.iTipo_skillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +35,6 @@ public class controller {
     @PostMapping ("/new/persona")
     public void agregarPersona(@RequestBody persona pers){
         persoServ.crearPersona(pers);
-        //listaPersona.add(pers);
     }
     
     @GetMapping ("/ver/persona")
@@ -53,7 +54,6 @@ public class controller {
     @PostMapping ("/new/usuario")
     public void agregarUsuario(@RequestBody usuario user){
         userServ.crearUsuario(user);
-        //System.out.println(user.getUser_name());
     }
     
     @GetMapping ("/ver/usuario")
@@ -160,5 +160,24 @@ public class controller {
     @DeleteMapping("/deleteTipo_skill/{id}")
     public void borrarTipo_skill(@PathVariable Long id){
         tskillServ.borrarTipo_skill(id);
+    }
+    ///SKILL
+    @Autowired
+    private iSkillService skillServ;
+    
+    @PostMapping ("/new/skill")
+    public void agregarSkills(@RequestBody skills skill){
+        skillServ.crearSkills(skill);
+    }
+    
+    @GetMapping ("/ver/skill")
+    @ResponseBody
+    public List<skills> verSkills(){
+        return skillServ.verSkills();
+    }
+    
+    @DeleteMapping("/deleteSkill/{id}")
+    public void borrarSkills(@PathVariable Long idskills){
+        skillServ.borrarSkills(idskills);
     }
 }

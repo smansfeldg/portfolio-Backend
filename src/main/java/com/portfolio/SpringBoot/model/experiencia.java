@@ -18,20 +18,19 @@ public class experiencia {
     
     private String empresa;
     private String puesto;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private Date fecha_inicio;
+    private Date fecha_fin;
     private String descripcion;
     private String url_img_refe;
     private String enlace_refe;
-    private Boolean esActual; 
     private Long persona_id;
     private Long tipo_empleo_idtipo_empleo;
-    
+    /*
     public experiencia (){}
     
     public experiencia (Long idesperiencia, String empresa, String puesto, 
             Date fechaInicio, Date fechaFin, String descripcion, String url_img_refe,
-            String enlace_refe, Boolean esActual, Long persona_id, Long tipo_empleo_idtipo_empleo){
+            String enlace_refe, Long persona_id, Long tipo_empleo_idtipo_empleo){
         this.idesperiencia = idesperiencia;
         this.empresa = empresa;
         this.puesto = puesto;
@@ -40,8 +39,7 @@ public class experiencia {
         this.descripcion = descripcion;
         this.url_img_refe = url_img_refe;
         this.enlace_refe = enlace_refe;
-        this.esActual = esActual;
         this.persona_id = persona_id;
         this.tipo_empleo_idtipo_empleo = tipo_empleo_idtipo_empleo;
-    }
+    }*/
 }
