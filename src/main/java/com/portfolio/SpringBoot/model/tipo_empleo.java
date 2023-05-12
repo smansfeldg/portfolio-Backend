@@ -16,4 +16,7 @@ public class tipo_empleo {
     private Long idtipo_empleo;
     
     private String nombre_tipo;
+    /*
+    @OneToMany(mappedBy = "tipo_empleo")
+    private List<experiencia> experiencias;*/
 }

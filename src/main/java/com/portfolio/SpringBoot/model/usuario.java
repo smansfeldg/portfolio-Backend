@@ -4,27 +4,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
 public class usuario {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idusuario;
-    
     private String user_name;
     private String password;
-    private Long persona_id;
-    
-    public usuario(){}
-    
-    public usuario(Long idusuario, String user_name, String password, Long persona_id){
-        this.idusuario = idusuario;
-        this.user_name = user_name;
-        this.password = password;
-        this.persona_id = persona_id;
-    }
+
+    @OneToOne
+    @JoinColumn(name = "persona_id")
+    private persona persona;
+
+    // Resto de los getters y setters
 }

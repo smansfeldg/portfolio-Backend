@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +25,18 @@ public class persona {
     private String about;
     private String url_foto;
     
+    /*
+    @OneToOne(mappedBy = "persona")
+    private usuario usuario;
+    @OneToMany(mappedBy = "persona")
+    private List<educacion> educaciones;
+    @OneToMany(mappedBy = "persona")
+    private List<experiencia> experiencias;
+    @OneToMany(mappedBy = "persona")
+    private List<proyectos> proyectos;
+    @OneToMany(mappedBy = "persona")
+    private List<skills> skills;
+ 
     public persona(){}
     
     public persona(Long id, String nombre, String apellido, String ciudad,
@@ -33,5 +48,5 @@ public class persona {
         this.profesion = profesion;
         this.about = about;
         this.url_foto = url_foto;
-    }
+    }*/
 }

@@ -42,6 +42,13 @@ public class controller {
     public List<persona> verPersona(){
         return persoServ.verPersona();
     }
+    @GetMapping("/ver/persona/{id}")
+    @ResponseBody
+    public persona buscarPersona(@PathVariable Long id) {
+//        System.out.println("id que resive de portman: ");
+//        System.out.println(id);
+        return persoServ.buscarPersona(id);
+    }
     
     @DeleteMapping("/delete/{id}")
     public void borrarPersona(@PathVariable Long id){

@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,8 +23,12 @@ public class educacion {
     private Date inicio;
     private Date fin; 
     private String descripcion; 
-    private Long persona_id;
     
+    @ManyToOne
+    @JoinColumn(name = "persona_id")
+    private persona persona;
+    
+    /*
     public educacion(){}
     
     public educacion (Long ideducacion, String institucion, String titulo, 
@@ -34,5 +40,5 @@ public class educacion {
         this.fin = fin;
         this.descripcion = descripcion;
         this.persona_id = persona_id;
-    }
+    }*/
 }

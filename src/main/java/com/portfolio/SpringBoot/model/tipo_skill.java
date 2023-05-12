@@ -15,4 +15,7 @@ public class tipo_skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idtipo_skill;
     private String nombre_tipo;
+    /*
+    @OneToMany(mappedBy = "tipo_skill")
+    private List<skills> skills;*/
 }

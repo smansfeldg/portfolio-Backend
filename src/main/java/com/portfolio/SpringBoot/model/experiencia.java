@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,8 +25,14 @@ public class experiencia {
     private String descripcion;
     private String url_img_refe;
     private String enlace_refe;
-    private Long persona_id;
-    private Long tipo_empleo_idtipo_empleo;
+    
+    @ManyToOne
+    @JoinColumn(name = "persona_id")
+    private persona persona;
+    @ManyToOne
+    @JoinColumn(name = "tipo_empleo_idtipo_empleo")
+    private tipo_empleo tipo_empleo;
+    
     /*
     public experiencia (){}
     

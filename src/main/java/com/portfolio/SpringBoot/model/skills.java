@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +19,12 @@ public class skills {
     private String nombre;
     private String icon;
     private Long procentaje;
-    private Long persona_id;
-    private Long tipo_skill_idtipo_skill;
+    
+    @ManyToOne
+    @JoinColumn(name = "persona_id")
+    private persona persona;
+
+    @ManyToOne
+    @JoinColumn(name = "tipo_skill_idtipo_skill")
+    private tipo_skill tipo_skill;
 }
